@@ -26,7 +26,8 @@ module Findata::Avan
         @[JSON::Field(key: "7. dividend amount", converter: StringToFloat)]
         property dividend : Float64
 
-        @[JSON::Field(key: "8. split coefficient", converter: StringToFloat)]
-        property split_coefficient : Float64
+        #This property doesn't exist in Weekly or Monthly feeds.
+        @[JSON::Field(key: "8. split coefficient", converter: StringToFloat, emitnull: true) ]
+        property split_coefficient : Float64?
     end
 end

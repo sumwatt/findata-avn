@@ -1,6 +1,9 @@
 require "json"
 
 module Findata::Avan
+    # SeriesMeta is an object for mapping Meta data fields to an object.
+    # It is used to map all API calls that do not have a 'compact' result set.
+    # See: SeriesMetaCompact
     class SeriesMeta
         include JSON::Serializable
 
@@ -13,10 +16,7 @@ module Findata::Avan
         @[JSON::Field(key: "3. Last Refreshed")]
         property last_refresh : String
 
-        @[JSON::Field(key: "4. Output Size")]
-        property output_size : String
-
-        @[JSON::Field(key: "5. Time Zone")]
+        @[JSON::Field(key: "4. Time Zone")]
         property time_zone : String
 
     end

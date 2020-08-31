@@ -32,3 +32,19 @@ describe Findata::Avan::TimeSeriesWeeklyAdj do
         record.meta.symbol.should eq "IBM"    
     end    
 end
+
+describe Findata::Avan::TimeSeriesMonthly do
+    it "parses Monthly Time Series to Object" do
+        json = File.read("./spec/sample_data/monthly.json") 
+        record = Findata::Avan::TimeSeriesWeekly.from_json(json)
+        record.meta.symbol.should eq "IBM"    
+    end    
+end
+
+describe Findata::Avan::TimeSeriesMonthlyAdj do
+    it "parses Monthly Adjusted Time Series to Object" do
+        json = File.read("./spec/sample_data/monthly_adj.json") 
+        record = Findata::Avan::TimeSeriesMonthlyAdj.from_json(json)
+        record.meta.symbol.should eq "IBM"    
+    end    
+end
