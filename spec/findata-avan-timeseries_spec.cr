@@ -48,3 +48,11 @@ describe Findata::Avan::TimeSeriesMonthlyAdj do
         record.meta.symbol.should eq "IBM"    
     end    
 end
+
+describe Findata::Avan::TimeSeriesIntraday do
+    it "parses Intraday Time Series to Object" do
+        json = File.read("./spec/sample_data/intraday_5.json") 
+        record = Findata::Avan::TimeSeriesIntraday.from_json(json)
+        record.meta.symbol.should eq "IBM"    
+    end    
+end

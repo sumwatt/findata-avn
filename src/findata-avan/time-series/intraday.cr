@@ -1,18 +1,18 @@
 require "json"
-require "./series_meta_compact.cr"
+require "./series_meta_intraday.cr"
 require "./series_data.cr"
 
 
 module Findata::Avan
         
-    class TimeSeriesIntradayc
+    class TimeSeriesIntraday
         include JSON::Serializable
 
         @[JSON::Field(key: "Meta Data")]
-        property meta : SeriesMetaCompact
+        property meta : SeriesMetaIntraday
 
-        @[JSON::Field(key: "Time Series (Daily)")]
-        property daily : Hash(String, SeriesData)
+        @[JSON::Field(key: "Time Series (5min)")]
+        property intraday : Hash(String, SeriesData)
 
     end
     
