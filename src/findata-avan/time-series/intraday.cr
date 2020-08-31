@@ -1,19 +1,33 @@
 require "json"
-require "./series_meta_intraday.cr"
 require "./series_data.cr"
 
-
-module Findata::Avan
+module Findata::Avan::TimeSeries
         
-    class TimeSeriesIntraday
+    class IntradayOne < Period
         include JSON::Serializable
+        @[JSON::Field(key: "Time Series (1min)")]
+        property data : Hash(String, SeriesData | SeriesDataAdj)
+    end
 
-        @[JSON::Field(key: "Meta Data")]
-        property meta : SeriesMetaIntraday
-
+    class IntradayFive < Period
+        include JSON::Serializable
         @[JSON::Field(key: "Time Series (5min)")]
-        property intraday : Hash(String, SeriesData)
+        property data : Hash(String, SeriesData | SeriesDataAdj)
+    end
 
+    class IntradayFifteen < Period       
+        @[JSON::Field(key: "Time Series (15min)")]
+        property data : Hash(String, SeriesData | SeriesDataAdj)
+    end
+
+    class IntradayThirty < Period       
+        @[JSON::Field(key: "Time Series (30min)")]
+        property data : Hash(String, SeriesData | SeriesDataAdj)
+    end
+
+    class IntradaySixty < Period       
+        @[JSON::Field(key: "Time Series (60min)")]
+        property data : Hash(String, SeriesData | SeriesDataAdj)
     end
     
 end

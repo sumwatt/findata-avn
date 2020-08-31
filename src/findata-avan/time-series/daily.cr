@@ -1,19 +1,20 @@
 require "json"
-require "./series_meta_compact.cr"
+require "./period.cr"
 require "./series_data.cr"
 
 
-module Findata::Avan
+module Findata::Avan::TimeSeries
         
-    class TimeSeriesDaily
+    class Daily < Period
         include JSON::Serializable
-
-        @[JSON::Field(key: "Meta Data")]
-        property meta : SeriesMetaCompact
-
         @[JSON::Field(key: "Time Series (Daily)")]
-        property daily : Hash(String, SeriesData)
+        property data : Hash(String, SeriesData | SeriesDataAdj)
+    end
 
+    class DailyAdj < Period
+        include JSON::Serializable
+        @[JSON::Field(key: "Time Series (Daily)")]
+        property data : Hash(String, SeriesData | SeriesDataAdj)
     end
     
 end

@@ -3,17 +3,18 @@ require "./series_meta.cr"
 require "./series_data.cr"
 
 
-module Findata::Avan
+module Findata::Avan::TimeSeries
     
-    class TimeSeriesMonthly
+    class Monthly < Period
         include JSON::Serializable
-
-        @[JSON::Field(key: "Meta Data")]
-        property meta : SeriesMeta
-
         @[JSON::Field(key: "Monthly Time Series", emit_null: true)]
-        property monthly : Hash(String, SeriesData)?
+        property data : Hash(String, SeriesData)?
+    end
 
+    class MonthlyAdj < Period
+        include JSON::Serializable
+        @[JSON::Field(key: "Monthly Adjusted Time Series", emit_null: true)]
+        property monthly_adj : Hash(String, SeriesDataAdj)?
     end
     
 end
