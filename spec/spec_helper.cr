@@ -1,0 +1,5 @@
+require "spec"
+require "../src/findata-avan"
+require "../src/findata-avan/time-series/*"
+require "dotenv"
+Dotenv.load ".env"

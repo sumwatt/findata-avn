@@ -1,0 +1,13 @@
+name: findata-avan
+version: 0.1.0
+
+authors:
+  - c.a. olson <colson@cogfactory.net>
+
+development_dependencies:
+  dotenv:
+    github: gdotdesign/cr-dotenv
+
+crystal: 0.35.1
+
+license: MIT
