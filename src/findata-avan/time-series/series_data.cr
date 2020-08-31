@@ -21,19 +21,11 @@ module Findata::Avan::TimeSeries
     end
 
     class SeriesData < Data
-        include JSON::Serializable
-        include StringToInt
-        include StringToFloat
-
         @[JSON::Field(key: "5. volume", converter: StringToInt)]
         property volume : Int32
     end
 
     class SeriesDataAdj < Data
-        include JSON::Serializable
-        include StringToInt
-        include StringToFloat
-
         @[JSON::Field(key: "5. adjusted close", converter: StringToFloat)]
         property close : Float64
 

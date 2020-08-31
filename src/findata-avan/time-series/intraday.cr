@@ -4,13 +4,11 @@ require "./series_data.cr"
 module Findata::Avan::TimeSeries
         
     class IntradayOne < Period
-        include JSON::Serializable
         @[JSON::Field(key: "Time Series (1min)")]
         property data : Hash(String, SeriesData | SeriesDataAdj)
     end
 
     class IntradayFive < Period
-        include JSON::Serializable
         @[JSON::Field(key: "Time Series (5min)")]
         property data : Hash(String, SeriesData | SeriesDataAdj)
     end
