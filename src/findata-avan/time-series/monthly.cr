@@ -12,7 +12,7 @@ module Findata::Avan::TimeSeries
 
     class MonthlyAdj < Period
         @[JSON::Field(key: "Monthly Adjusted Time Series", emit_null: true)]
-        property monthly_adj : Hash(String, SeriesDataAdj)?
+        property data : Hash(String, SeriesDataAdj)?
     end
     
 end

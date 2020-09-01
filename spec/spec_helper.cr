@@ -1,5 +1,6 @@
 require "spec"
 require "../src/findata-avan"
 require "../src/findata-avan/time-series/*"
+require "../src/findata-avan/quote/*"
 require "dotenv"
 Dotenv.load ".env"
