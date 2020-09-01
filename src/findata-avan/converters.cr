@@ -12,4 +12,8 @@ module StringToInt
     def self.from_json(value : JSON::PullParser) : Int32
       value.read_string.to_i
     end
+
+    def self.from_json(value : JSON::PullParser) : Int64
+      value.read_string.to_i64
+    end
 end

@@ -22,7 +22,7 @@ module Findata::Avan::TimeSeries
 
     class SeriesData < Data
         @[JSON::Field(key: "5. volume", converter: StringToInt)]
-        property volume : Int32
+        property volume : Int32 | Int64
     end
 
     class SeriesDataAdj < Data
@@ -30,7 +30,7 @@ module Findata::Avan::TimeSeries
         property close : Float64
 
         @[JSON::Field(key: "6. volume", converter: StringToInt)]
-        property volume : Int32
+        property volume : Int32 | Int64
 
         @[JSON::Field(key: "7. dividend amount", converter: StringToFloat)]
         property dividend : Float64

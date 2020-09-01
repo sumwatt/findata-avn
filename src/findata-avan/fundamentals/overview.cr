@@ -5,6 +5,7 @@ module Findata::Avan::Fundamentals
         include JSON::Serializable
         include StringToInt
         include StringToFloat
+        include StringToInt
 
         # Returns the security symbol
         #
@@ -117,7 +118,7 @@ module Findata::Avan::Fundamentals
         # Overview.market_cap
         # ```
         @[JSON::Field(key: "MarketCapitalization", converter: StringToInt)]
-        property market_cap : Int32
+        property market_cap : Int64 | Int32
 
         # Returns the ebitda
         #
@@ -125,7 +126,7 @@ module Findata::Avan::Fundamentals
         # Overview.ebitda
         # ```
         @[JSON::Field(key: "EBITDA", converter: StringToInt)]
-        property ebitda : Int32
+        property ebitda : Int64 | Int32
 
         # Returns the PE Ratio
         #
@@ -221,15 +222,15 @@ module Findata::Avan::Fundamentals
         # Overview.revenue
         # ```
         @[JSON::Field(key: "RevenueTTM", converter: StringToInt)]
-        property revenue : Int32
+        property revenue : Int64 | Int32
 
         # Returns the gross profit
         #
         # ```
         # Overview.gross_profit
         # ```
-        @[JSON::Field(key: "GrossProfit", converter: StringToInt)]
-        property gross_profit : Int32
+        @[JSON::Field(key: "GrossProfitTTM", converter: StringToInt)]
+        property gross_profit : Int64 | Int32
 
         # Returns the diluted EPS
         # AlphaVantage: DilutedEPSTTM
@@ -357,7 +358,7 @@ module Findata::Avan::Fundamentals
         # Overview.shares_outstanding
         # ```
         @[JSON::Field(key: "SharesOutstanding", converter: StringToInt)]
-        property shares_outstanding : Int32
+        property shares_outstanding : Int32 | Int64
 
         # Returns the shares on float
         # 
@@ -365,7 +366,7 @@ module Findata::Avan::Fundamentals
         # Overview.shares_float
         # ```
         @[JSON::Field(key: "SharesFloat", converter: StringToInt)]
-        property shares_float : Int32
+        property shares_float : Int32 | Int64
 
         # Returns the shares shorted
         # 
@@ -373,7 +374,7 @@ module Findata::Avan::Fundamentals
         # Overview.shares_short
         # ```
         @[JSON::Field(key: "SharesShort", converter: StringToInt)]
-        property shares_short : Int32
+        property shares_short : Int32 | Int64
 
         # Returns the shars short prior month
         # AlphaVantage: SharesShortPriorMonth
@@ -381,7 +382,8 @@ module Findata::Avan::Fundamentals
         # Overview.shares_short_pm
         # ```
         @[JSON::Field(key: "SharesShortPriorMonth", converter: StringToInt)]
-        property shares_short_pm : Int32
+        property shares_short_pm : Int32 | Int64
+
 
         # Returns the short percent outstanding
         # AlphaVantage: ShortPercentOutstanding
@@ -444,7 +446,7 @@ module Findata::Avan::Fundamentals
         # ```
         # Overview.dividend_date
         # ```
-        @[JSON::Field(key: "DividendDate", converter: Time::Format::ISO_8601_DATE)]
+        @[JSON::Field(key: "DividendDate", converter: Time::Format.new("%F"))]
         property dividend_date : Time
 
         # Returns the ex dividend date
@@ -452,7 +454,7 @@ module Findata::Avan::Fundamentals
         # ```
         # Overview.ex_dividend_date
         # ```
-        @[JSON::Field(key: "ExDividendDate", converter: Time::Format::ISO_8601_DATE)]
+        @[JSON::Field(key: "ExDividendDate", converter: Time::Format.new("%F"))]
         property ex_dividend_date : Time
 
         # Returns the last split factor
@@ -460,7 +462,7 @@ module Findata::Avan::Fundamentals
         # ```
         # Overview.last_split_factor
         # ```
-        @[JSON::Field(key: "LastSplitFactor", converter: String)]
+        @[JSON::Field(key: "LastSplitFactor")]
         property last_split_factor : String
 
         # Returns the last split date
@@ -468,7 +470,7 @@ module Findata::Avan::Fundamentals
         # ```
         # Overview.last_split_date
         # ```
-        @[JSON::Field(key: "LastSplitDate", converter: Time::Format::ISO_8601_DATE)]
+        @[JSON::Field(key: "LastSplitDate", converter: Time::Format.new("%F"))]
         property last_split_date : Time
 
 

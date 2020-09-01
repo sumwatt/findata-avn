@@ -30,7 +30,7 @@ module Findata::Avan::Quote
         property price : Float64
 
         @[JSON::Field(key: "06. volume", converter: StringToInt)]
-        property volume : Int32
+        property volume : Int32 | Int64
 
         @[JSON::Field(key: "07. latest trading day")]
         property last_trading_day : String
