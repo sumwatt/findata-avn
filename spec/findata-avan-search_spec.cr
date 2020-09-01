@@ -1,6 +1,5 @@
 require "./spec_helper"
 
-
 describe Findata::Avan::Search do
 
         it "parses a Search to an Object" do 

@@ -1,6 +1,6 @@
 # findata-avan
 
-TODO: Write a description here
+A wrapper for the Alpha Vantage API with the goal of mapping the JSON to crystal objects.
 
 ## Installation
 
@@ -24,7 +24,7 @@ TODO: Write usage instructions here
 
 ## Development
 
-TODO: Write development instructions here
+dotenv is used for testing and not a requirement. 
 
 ## Contributing
 
