@@ -5,7 +5,6 @@ module Findata::Avan::Fundamentals
         include JSON::Serializable
         include StringToInt
         include StringToFloat
-        include StringToInt
 
         # Returns the security symbol
         #
