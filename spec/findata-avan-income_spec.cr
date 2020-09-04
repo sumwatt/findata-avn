@@ -6,4 +6,5 @@ describe Findata::Avan::Fundamentals do
         record = Findata::Avan::Fundamentals::IncomeStatement.from_json(json)
         record.symbol.should eq "IBM"   
     end    
+    
 end
